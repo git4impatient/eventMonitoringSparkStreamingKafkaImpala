@@ -1,3 +1,8 @@
+echo $USER
+echo $$
+echo $HOSTNAME
+pwd
+
 # start kafka message publication and 
 # create flume sink to log events
 xterm -hold /home/marty/edrive/bigData/FDAadverseEventsData/ascii/250kafka2flumechanneldirect &
