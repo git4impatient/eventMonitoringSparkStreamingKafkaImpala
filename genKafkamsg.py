@@ -5,7 +5,9 @@ import sys
 import time
 
 from kafka import ( KafkaClient, KeyedProducer, RoundRobinPartitioner)
-kafka = KafkaClient('merlin:9092')
+# to make automation simpler put kafka on the name node so the
+# hostname below is just the namenode
+kafka = KafkaClient("pythonENV$KAFKANODE:9092")
 # HashedPartitioner is default (currently uses python hash())
 producer = KeyedProducer(kafka)
 for line in sys.stdin:
