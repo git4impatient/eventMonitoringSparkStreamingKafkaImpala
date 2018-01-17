@@ -7,6 +7,11 @@ wget https://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation
 # the file we want is the demographics in this example  DEMO17Q3.txt
 mv ascii/DEMO17Q3.txt .
 
+sudo yum install epel-release
+sudo yum -y install python-pip
+sudo pip install kafka-python
+
+
 # find the namenode - our config has the kafka listener on the same address
 # if we find the namenode we have found the kafka node :-)
 export NAMENODE=$(hdfs getconf -namenodes| head -1)
