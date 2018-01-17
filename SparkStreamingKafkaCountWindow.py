@@ -4,7 +4,7 @@ import os
 
 mynn = os.environ['NAMENODE']+ ":8020"
 mykafka = os.environ['KAFKANODE']+ ":9092"
-mycpdir = os.environ['USER']+ ":9092"
+mycpdir = "hdfs:///user/"+ os.environ['USER'] + "/streamingcheckpoints"
 print "mynn is " + mynn + " mykafka is " + mykafka
 
 
@@ -13,7 +13,7 @@ from pyspark.streaming import StreamingContext
 from pyspark.streaming.kafka import KafkaUtils
 sc = SparkContext(appName="PythonStreamingDirectKafkaWordCount")
 ssc = StreamingContext(sc, 5)
-ssc.checkpoint("hdfs:///user/marty/streamingcheckpoints")   # set checkpoint directory
+ssc.checkpoint(mycpdir)   # set checkpoint directory
 print ssc
 
 kvs = KafkaUtils.createDirectStream(ssc, ['medevents'], {"metadata.broker.list": mykafka})
