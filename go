@@ -30,11 +30,8 @@ sed -i  "s/ZKNODE/$ZKNODE/" directKafkaChannel.properties
 sed -i  "s/USER/$USER/" directKafkaChannel.properties 
 # run flume in flafka config to store all events as they come in
 flume-ng agent -n flume1 -f directKafkaChannel.properties  > flumeMsg.out 2>&1 &
-sleep 10
-hadoop fs -ls /user/$USER/medevents
-
-xterm -hold /home/marty/edrive/bigData/FDAadverseEventsData/ascii/250kafka2flumechanneldirect &
+#sleep 10
+#hadoop fs -ls /user/$USER/medevents
 #
 # now also start spark streaming to do real time counts
-#spark-submit /home/marty/edrive/src/spark/streaming/SparkStreamingKafkaCount.py 2> /dev/null
-spark-submit /home/marty/edrive/src/spark/streaming/SparkStreamingKafkaCountWindow.py 2> /dev/null 
+spark-submit ./SparkStreamingKafkaCountWindow.py 2> /dev/null 
