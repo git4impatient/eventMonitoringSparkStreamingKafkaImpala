@@ -20,6 +20,8 @@ export KAFKANODE=$NAMENODE
 export ZKNODE=$NAMENODE
 chmod +x genKafkamsg.py 
 
+# create the topic  medevents
+kafka-topics --create --zookeeper $ZKNODE:2181 --replication-factor 1 --partitions 1 --topic medevents
 
 # start kafka message publication and 
 cat DEMO17Q3.txt | ./genKafkamsg.py &
