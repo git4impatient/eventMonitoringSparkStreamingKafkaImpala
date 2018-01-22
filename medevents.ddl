@@ -32,7 +32,7 @@ mynull string
 row format delimited
 fields terminated by ','
 stored as textfile
-location '/user/marty/medevents'
+location '/user/$USER/medevents'
 ;
 
 select * from medevents limit 5;
