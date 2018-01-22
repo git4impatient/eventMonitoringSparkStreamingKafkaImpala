@@ -30,7 +30,7 @@ REPORTER_COUNTRY string,
 mynull string
 )
 row format delimited
-fields terminated by ','
+fields terminated by '$'
 stored as textfile
 location '/user/$USER/meddata'
 ;
