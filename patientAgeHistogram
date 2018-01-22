@@ -1,0 +1,7 @@
+-- historgram of patient age
+-- run this query in HUE and then get the bar graph
+select age , count(*) from  medeventsp
+where cast(age as int) between 0 and 120 
+group by age
+order by cast(age as int)  asc
+
