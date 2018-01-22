@@ -45,6 +45,7 @@ select REPORTER_COUNTRY , sex,  count(*) from medevents
 group by REPORTER_COUNTRY, sex
 order by  REPORTER_COUNTRY, sex;
 
+drop table if exists medeventsp;
 create table medeventsp stored as parquet as select * from medevents;
 
 eoj
