@@ -40,9 +40,9 @@ location '/user/$USER/meddata'
 
 select * from medevents limit 5;
 
-select REPORTER_COUNTRY , GNDR_COD,  count(*) from medevents
-group by REPORTER_COUNTRY, GNDR_COD
-order by  REPORTER_COUNTRY, GNDR_COD;
+select REPORTER_COUNTRY , sex,  count(*) from medevents
+group by REPORTER_COUNTRY, sex
+order by  REPORTER_COUNTRY, sex;
 
 create table medeventsp stored as parquet as select * from medevents;
 
