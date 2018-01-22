@@ -8,11 +8,12 @@ drop table if exists medevents;
 
 create external table medevents ( 
 priid string,
-CASEcode string,
+caseid string,
 caseversion string,
 I_F_COD string,
 EVENT_DT string,
 MFR_DT string,
+init_fda_dt,
 FDA_DT string,
 REPT_COD string,
 auth_num string,
