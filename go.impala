@@ -1,0 +1,11 @@
+#copyright (c) 2018 martin lurie
+# sample code not supported
+# 
+# create impala table and run some sample queries
+#
+
+hadoop fs -mkdir meddata
+hadoop fs -put DEMO17Q3.txt meddata
+export DATANODE=$(sudo su - hdfs -c "hdfs dfsadmin -report | grep Hostname | sed 's/.*: //'  | tail -1")
+$DATANODE
+bash medevents.ddl 
