@@ -5,7 +5,9 @@
 #
 
 hadoop fs -mkdir meddata
-hadoop fs -put DEMO17Q3.txt meddata
+hadoop fs -put ./ascii/DEMO17Q3.txt meddata
+hadoop fs -mkdir medoutcome
+hadoop fs -put ./ascii/OUTC17Q3.txt medoutcome
 export DATANODE=$(sudo su - hdfs -c "hdfs dfsadmin -report | grep Hostname | sed 's/.*: //'  | tail -1")
-$DATANODE
+echo $DATANODE
 bash medevents.impala.sh 

@@ -5,7 +5,7 @@ pwd
 wget https://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/UCM590948.zip
  jar -xvf UCM590948.zip
 # the file we want is the demographics in this example  DEMO17Q3.txt
-mv ascii/DEMO17Q3.txt .
+# leave it in place mv ascii/DEMO17Q3.txt .
 
 sudo yum -y install epel-release
 sudo yum -y install python-pip
@@ -24,7 +24,7 @@ chmod +x genKafkamsg.py
 kafka-topics --create --zookeeper $ZKNODE:2181 --replication-factor 1 --partitions 1 --topic medevents
 
 # start kafka message publication and 
-cat DEMO17Q3.txt | ./genKafkamsg.py &
+cat ./ascii/DEMO17Q3.txt | ./genKafkamsg.py &
 # clean out prior run
 hadoop fs -rm -r medevents
 # create directory for next run
