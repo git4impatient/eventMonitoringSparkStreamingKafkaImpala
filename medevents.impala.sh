@@ -72,3 +72,6 @@ create table medoutcomep stored as parquet as select * from medoutcome
 ;
 
 eoj
+
+ impala-shell -i $DATANODE  -f logisticOutcome.sql
+
