@@ -10,7 +10,7 @@ and a.wt is not null
 and a.age > 0 and age < 100
 and a.sex is not null
 
-group by priid, csex, label
+group by priid, csex, label;
 --order by count(*) desc 
 --) as foo
 
